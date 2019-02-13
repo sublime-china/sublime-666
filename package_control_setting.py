@@ -1,4 +1,6 @@
 import sublime
+from .log import Log
+#Log.DEBUG = True
 
 CHANNELS_URL = 'http://www.miaoqiyuan.cn/products/proxy.php/https://packagecontrol.io/channel_v3.json'
 ORIGIN_CHANNELS_URL = 'https://packagecontrol.io/channel_v3.json'
@@ -50,12 +52,12 @@ def restore_repositories(params):
 
 
 def plugin_unloaded():
-    print('---------- plugin_unloaded ----------')
+    Log.debug('---------- plugin_unloaded ----------')
     restore_channels()
     restore_repositories()
 
 
 def plugin_loaded():
-    print('---------- plugin_loaded ----------')
+    Log.debug('---------- plugin_loaded ----------')
     modify_channels()
     modify_repositories()
