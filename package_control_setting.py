@@ -3,7 +3,7 @@
 import sublime
 from .libs import log
 
-CHANNELS_URL = 'http://www.miaoqiyuan.cn/products/proxy.php/https://packagecontrol.io/channel_v3.json'
+CHANNELS_URL = 'http://packagecontrol.cn/channel_v3.json'
 ORIGIN_CHANNELS_URL = 'https://packagecontrol.io/channel_v3.json'
 REPOSITORIES_URL = 'https://github.com/sublime-china'
 SETTINGS_NAME = 'Package Control.sublime-settings'
