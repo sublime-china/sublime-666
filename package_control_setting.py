@@ -27,7 +27,7 @@ def deal_setting(name, default):
 
 
 @deal_setting('channels', [CHANNELS_URL])
-def modify_channels(params):
+def modify_channels(params=None):
     if ORIGIN_CHANNELS_URL in params:
         params.remove(ORIGIN_CHANNELS_URL)
     if CHANNELS_URL not in params:
@@ -35,13 +35,13 @@ def modify_channels(params):
 
 
 @deal_setting('repositories', [REPOSITORIES_URL])
-def modify_repositories(params):
+def modify_repositories(params=None):
     if REPOSITORIES_URL not in params:
         params.append(REPOSITORIES_URL)
 
 
 @deal_setting('channels', [ORIGIN_CHANNELS_URL])
-def restore_channels(params):
+def restore_channels(params=None):
     if CHANNELS_URL in params:
         params.remove(CHANNELS_URL)
     if ORIGIN_CHANNELS_URL not in params:
@@ -49,7 +49,7 @@ def restore_channels(params):
 
 
 @deal_setting('repositories', [])
-def restore_repositories(params):
+def restore_repositories(params=None):
     if REPOSITORIES_URL in params:
         params.remove(REPOSITORIES_URL)
 

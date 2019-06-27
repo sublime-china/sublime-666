@@ -4,7 +4,6 @@ import sys
 import os
 from imp import reload
 from .libs import log, paths, storage
-# log.enable()
 
 dirname = os.path.split(os.path.dirname(__file__))[1]
 
@@ -13,6 +12,8 @@ all_modules = [
     'libs.paths',
     'libs.storage',
     'package_control_setting',
+    's6_setting',
+    'setting_sync',
 ]
 
 
@@ -26,12 +27,12 @@ def reload_module():
 def plugin_loaded():
     log.debug('---------- plugin_loaded ----------')
     reload_module()
-    start_thread()
+    # [comment by Floyda] start_thread()
 
 
 def plugin_unloaded():
     log.debug('---------- plugin_unloaded ----------')
-    stop_thread(main_thread)
+    # [comment by Floyda] stop_thread(main_thread)
 
 
 import threading
@@ -78,4 +79,4 @@ class Tick(threading.Thread):
             time.sleep(TICK_TIME)
 
 
-main_thread = Tick()
+# [comment by Floyda] main_thread = Tick()
