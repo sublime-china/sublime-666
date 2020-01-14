@@ -8,30 +8,30 @@ from .libs import log, paths, storage
 dirname = os.path.split(os.path.dirname(__file__))[1]
 
 all_modules = [
-    'libs.log',
-    'libs.paths',
-    'libs.storage',
-    'package_control_setting',
-    's6_setting',
-    'setting_sync',
+    "libs.log",
+    "libs.paths",
+    "libs.storage",
+    "package_control_setting",
+    "s6_setting",
+    "setting_sync",
 ]
 
 
 def reload_module():
     for module in all_modules:
-        name = '%s.%s' % (dirname, module)
+        name = "%s.%s" % (dirname, module)
         reload(sys.modules[name])
-    stop_thread(main_thread)
+    # stop_thread(main_thread)
 
 
 def plugin_loaded():
-    log.debug('---------- plugin_loaded ----------')
+    log.debug("---------- plugin_loaded ----------")
     reload_module()
     # [comment by Floyda] start_thread()
 
 
 def plugin_unloaded():
-    log.debug('---------- plugin_unloaded ----------')
+    log.debug("---------- plugin_unloaded ----------")
     # [comment by Floyda] stop_thread(main_thread)
 
 
@@ -58,16 +58,16 @@ def _async_raise(tid, exctype):
 
 
 def start_thread():
-    log.debug('start thread')
-    main_thread.start()
+    log.debug("start thread")
+    # main_thread.start()
 
 
 def stop_thread(thread):
     try:
         _async_raise(thread.ident, SystemExit)
-        log.debug('stop thread')
+        log.debug("stop thread")
     except:
-        log.debug('stop thread failed')
+        log.debug("stop thread failed")
 
 
 TICK_TIME = 1

@@ -8,7 +8,7 @@ import json
 from .paths import get_file_path_cache, get_setting_path_user
 
 
-class Storage():
+class Storage:
     def __init__(self, name):
         self._name = name
         self._dict = {}
@@ -63,8 +63,8 @@ class StorageCache(Storage):
 
     def save(self):
         try:
-            fp = open(self._path, 'w+')
-            print('save content:', json.dumps(self._dict))
+            fp = open(self._path, "w+")
+            print("save content:", json.dumps(self._dict))
             fp.write(json.dumps(self._dict))
             fp.close()
         except:
@@ -73,8 +73,8 @@ class StorageCache(Storage):
     def clear(self):
         self._dict = {}
         try:
-            fp = open(self._path, 'w+')
-            fp.write('{}')
+            fp = open(self._path, "w+")
+            fp.write("{}")
             fp.close()
         except:
             sublime.error_message("Cann't save to local.")
